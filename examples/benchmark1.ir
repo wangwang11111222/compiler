@@ -1,0 +1,54 @@
+start_program benchmark1
+
+start_function main(): void
+declare _3_a: int
+declare _3_b: int
+declare _3_i: int
+declare _t1: int
+declare _t2: int
+declare _t3: int
+declare _t4: int
+declare _t5: int
+declare _t6: int
+declare _t7: int
+declare _t8: int
+assign, _3_a, 0
+assign, _3_b, 1
+assign, _3_i, 0
+add, _3_a, _3_b, _t1
+assign, _3_a, _t1
+_L1:
+brlt, _3_i, 6, _L3
+assign, _t2, 0
+goto, _L4
+_L3:
+assign, _t2, 1
+_L4:
+breq, _t2, 0, _L2
+add, _3_a, _3_b, _t3
+assign, _3_a, _t3
+brlt, _3_i, 3, _L5
+assign, _t4, 0
+goto, _L6
+_L5:
+assign, _t4, 1
+_L6:
+breq, _t4, 0, _L7
+add, _3_a, _3_b, _t5
+assign, _3_a, _t5
+goto, _L8
+_L7:
+sub, _3_a, _3_b, _t6
+assign, _3_a, _t6
+_L8:
+add, _3_a, _3_b, _t7
+assign, _3_a, _t7
+add, _3_i, 1, _t8
+assign, _3_i, _t8
+goto, _L1
+_L2:
+call, printi, _3_a
+return
+end_function
+
+end_program
