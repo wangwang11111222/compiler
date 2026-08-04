@@ -1,4 +1,4 @@
-# OMSCS Compiler Project
+# Compiler Project
 
 Public-facing compiler project built around the Tiger language.
 
