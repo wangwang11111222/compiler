@@ -1,40 +1,46 @@
-# Local environments
-.env
-.venv/
-venv/
-env/
-__pycache__/
-*.py[cod]
+# Build output
+build/
+bin/
+out/
+cs8803_bin/
+
+# Java artifacts
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# Build tools
+.gradle/
+target/
+
+# ANTLR generated artifacts
+src/Tiger.interp
+src/Tiger.tokens
+src/TigerLexer.interp
+src/TigerLexer.tokens
+# Uncomment to stop tracking the generated parser sources:
+# src/TigerLexer.java
+# src/TigerParser.java
+# src/TigerListener.java
+# src/TigerBaseListener.java
+# src/TigerVisitor.java
+# src/TigerBaseVisitor.java
+
+# Compiler run artifacts (regenerated from .tiger sources)
+*.tree.gv
+*.st
+*.naive.s
+*.ib.s
 
 # IDE and OS files
 .idea/
 .vscode/
+*.iml
+.classpath
+.project
+.settings/
 .DS_Store
 Thumbs.db
-
-# Large or private data artifacts
-data/
-raw/
-raw_*/
-*.csv.bak
-*.sas7bdat
-*.h5
-*.hdf5
-*.parquet
-*.pkl
-*.pt
-*.pth
-*.mat
-*.zip
-*.rar
-*.7z
-*.ova
-*.mp4
-*.mov
-
-# Credentials and local notebooks
-*.key
-*.pem
-*token*
-*secret*
-*password*
