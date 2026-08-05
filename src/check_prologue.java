@@ -101,7 +101,7 @@ for (int i = 0; i < func.params.size(); i++) {
 
     if (i < 4) {
         if (reg != null && !reg.equals("spilled")) {
-            // has register: move arg reg â†’ allocated reg
+            // has register: move arg reg â†?allocated reg
             if (pType.equals("float")) mipsLines.add("mov.s " + reg + ", " + floatArgRegs[i]);
             else mipsLines.add("move " + reg + ", " + intArgRegs[i]);
         } else {
@@ -113,11 +113,11 @@ for (int i = 0; i < func.params.size(); i++) {
         }
     } else {
         if (reg != null && !reg.equals("spilled")) {
-            // has register: load from caller stack â†’ allocated reg
+            // has register: load from caller stack â†?allocated reg
             if (pType.equals("float")) mipsLines.add("l.s " + reg + ", " + (frameSize + (i-4)*4) + "($sp)");
             else mipsLines.add("lw " + reg + ", " + (frameSize + (i-4)*4) + "($sp)");
         } else {
-            // spilled: copy from caller stack â†’ local slot
+            // spilled: copy from caller stack â†?local slot
             varOffset.put(pName, offset);
             String tmpReg = pType.equals("float") ? "$f16" : "$t8";
             if (pType.equals("float")) {

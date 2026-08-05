@@ -222,7 +222,7 @@ public class AllocationEmit {
 
                                 if (srcIsLit) {
                                     if (needConvert) {
-                                        // int literal â†’ float var (e.g., assign, f, 5)
+                                        // int literal â†?float var (e.g., assign, f, 5)
                                         mipsLines.add("li $t8, " + src);
                                         mipsLines.add("mtc1 $t8, $f16");
                                         mipsLines.add("cvt.s.w $f16, $f16");
@@ -234,7 +234,7 @@ public class AllocationEmit {
                                             mipsLines.add("s.s $f16, " + pr.varOffset.get(dst) + "($sp)");
                                         }
                                     } else if (dstFloat) {
-                                        // float literal â†’ float var
+                                        // float literal â†?float var
                                         if (!dstSpilled && !isGlobalDst) {
                                             mipsLines.add("li.s " + dstReg + ", " + src);
                                         } else if (isGlobalDst) {
@@ -245,7 +245,7 @@ public class AllocationEmit {
                                             mipsLines.add("s.s $f16, " + pr.varOffset.get(dst) + "($sp)");
                                         }
                                     } else {
-                                        // int literal â†’ int var
+                                        // int literal â†?int var
                                         if (!dstSpilled && !isGlobalDst) {
                                             mipsLines.add("li " + dstReg + ", " + src);
                                         } else if (isGlobalDst) {
@@ -257,7 +257,7 @@ public class AllocationEmit {
                                         }
                                     }
                                 } else if (needConvert) {
-                                    // int var â†’ float var (e.g., assign, f, intVar)
+                                    // int var â†?float var (e.g., assign, f, intVar)
                                     // load int src
                                     if (!srcSpilled && !isGlobalSrc) {
                                         mipsLines.add("mtc1 " + srcReg + ", $f16");
@@ -282,7 +282,7 @@ public class AllocationEmit {
                                     if (dstFloat) mipsLines.add("mov.s " + dstReg + ", " + srcReg);
                                     else mipsLines.add("move " + dstReg + ", " + srcReg);
                                 } else {
-                                    // general case: load src â†’ tmp, store tmp â†’ dst
+                                    // general case: load src â†?tmp, store tmp â†?dst
                                     String tmpInt = "$t8", tmpFloat = "$f16";
                                     String tmp;
 
